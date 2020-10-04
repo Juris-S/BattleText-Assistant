@@ -9,11 +9,11 @@ Download the zip and ensure to have the manager.py in the same folder as words
 
 ### Prerequisites
 
-* Python 3.6.* (Tested on 6.3)
+* Python 3.6.* (Tested on 6.3, 3.7.5)
 * [Tkinter](https://docs.python.org/2/library/tkinter.html)
 
 ## GUI
-![Search Function](https://i.imgur.com/b4aB2pf.png)
+![Search Function](https://i.imgur.com/oFrqAL3.png)
 
 ## Acknowledgments
 * This tool was made to expland the knowledge of the user on the words that can be used
