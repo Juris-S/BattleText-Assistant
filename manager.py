@@ -1,9 +1,10 @@
 from string import ascii_lowercase as alphabet
-from random import shuffle
-from random import randint
+from random import shuffle, randint
 from tkinter import *
 import json
 
+ui_style = {0: "#E84855", 1: "#2D3047", 2: "#FCFC82"}
+ui_font = "Lilita One"
 
 class Word:
     ''' Class format for a word type '''
@@ -105,69 +106,69 @@ class Window:
         self.max_length.set(15)
 
         # Title
-        panel_title = Frame(self.master, bg='#4C5961', height=100)
+        panel_title = Frame(self.master, bg=ui_style[0], height=100)
         panel_title.pack(side='top', fill='both')
         label_title = Label(panel_title, text='BattleText Assistant',
-                            bg='#4C5961', fg='white',
-                            font=('Arial Bold', 24, 'bold'))
+                            bg=ui_style[0], fg='white',
+                            font=(ui_font, 24, 'bold'))
         label_title.pack()
 
         # Entry
-        panel_entry = Frame(self.master, bg='#768C98', height=100)
+        panel_entry = Frame(self.master, bg=ui_style[1], height=100)
         panel_entry.pack(side='top', fill='both')
         
-        label_instruction = Label(panel_entry, bg='#768C98',
-                                  fg='white', font=('Helvetica', 12, 'bold'),
+        label_instruction = Label(panel_entry, bg=ui_style[1],
+                                  fg='white', font=(ui_font, 12),
                                   text='Banned Letters')
-        label_instruction.pack(side='left', fill='both')
+        label_instruction.pack(side='left', fill='both', pady=1)
         
         entry_banned = Entry(panel_entry, textvariable=self.banned_letters,
                              font=('Arial', 12, 'bold'))
-        entry_banned.pack(side='left', expand=1, fill='both', padx=3)
+        entry_banned.pack(side='left', expand=1, fill='both', padx=3, pady=1)
 
         # Length
-        panel_size = Frame(self.master, bg='#768C98', height=100)
+        panel_size = Frame(self.master, bg=ui_style[1], height=100)
         panel_size.pack(side='top', fill='both')
 
         # Min
-        label_len = Label(panel_size, bg='#768C98',
-                                  fg='white', font=('Helvetica', 12, 'bold'),
-                                  text='Minimum Length')
+        label_len = Label(panel_size, bg=ui_style[1],
+                                  fg='white', font=(ui_font, 11),
+                                  text='Minimum Length ')
         label_len.pack(side='left', fill='both')
         
         entry_min = Entry(panel_size, textvariable=self.min_length,
-                             font=('Arial', 12, 'bold'),width=3)
+                             font=('Arial', 12, 'bold'), width=4)
         entry_min.pack(side='left')
         
         # Max
-        panel_size2 = Frame(self.master, bg='#768C98', height=100)
+        panel_size2 = Frame(self.master, bg=ui_style[1], height=100)
         panel_size2.pack(side='top', fill='both')
         
-        label_len2 = Label(panel_size2, bg='#768C98',
-                                  fg='white', font=('Helvetica', 12, 'bold'),
+        label_len2 = Label(panel_size2, bg=ui_style[1],
+                                  fg='white', font=(ui_font, 11),
                                   text='Maximum Length')
         label_len2.pack(side='left', fill='both')
         
         entry_max = Entry(panel_size2, textvariable=self.max_length,
-                             font=('Arial', 12, 'bold'),width=3)
+                             font=('Arial', 12, 'bold'),width=4)
         entry_max.pack(side='left')
 
         
         # Generation
-        panel_wordlist = Frame(self.master, bg='#98ACB5')
+        panel_wordlist = Frame(self.master, bg=ui_style[1])
         panel_wordlist.pack_propagate(0)
         panel_wordlist.pack(expand=True, fill='both')
         
         self.text_words = Text(panel_wordlist, bg='#E3E6E7',
                                font=('Consolas', 12, 'bold')
                                )
-        self.text_words.pack(expand=True, fill='both', padx=40)
+        self.text_words.pack(expand=True, fill='both', padx=35)
 
-        button_generate = Button(panel_wordlist, text='Generate List',bg='gray',
+        button_generate = Button(panel_wordlist, text='Generate List', bg=ui_style[2],
                                  command=self.generate_words,
-                                 font=('Arial', 12, 'bold'), relief='groove',
+                                 font=(ui_font, 12), relief='flat',
                                  width=20, height=2)
-        button_generate.pack()
+        button_generate.pack(pady=10)
         
 def main():
     # Window Configuration
